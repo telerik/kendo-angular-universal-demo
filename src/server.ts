@@ -39,8 +39,10 @@ app.use(express.static(path.join(ROOT, 'dist/client'), {index: false}));
 
 
 import { serverApi } from './backend/api';
+
 // Our API for demos only
 app.get('/data.json', serverApi);
+
 
 function ngApp(req, res) {
   res.render('index', {

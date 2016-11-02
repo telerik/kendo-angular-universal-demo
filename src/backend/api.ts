@@ -16,7 +16,7 @@ export function serverApi(req, res) {
   console.log('/data.json Cache Miss');
 
   fakeDataBase.get()
-    .then(data => {
+    .then((data) => {
       fakeDemoRedisCache.set(key, data);
       return data;
     })
