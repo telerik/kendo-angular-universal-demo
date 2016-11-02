@@ -6,7 +6,7 @@ import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { Cache } from './universal-cache';
+import { CacheService } from './universal-cache';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -14,7 +14,6 @@ import { Cache } from './universal-cache';
   imports: [
     UniversalModule, // BrowserModule, HttpModule, and JsonpModule are included
     FormsModule,
-
     HomeModule,
     AboutModule,
 
@@ -23,12 +22,12 @@ import { Cache } from './universal-cache';
   providers: [
     { provide: 'isBrowser', useValue: isBrowser },
     { provide: 'isNode', useValue: isNode },
-    Cache
+    CacheService
   ]
 
 })
 export class MainModule {
-  constructor(public cache: Cache) {
+  constructor(public cache: CacheService) {
 
   }
 }

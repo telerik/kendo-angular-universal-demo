@@ -5,12 +5,12 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/share';
 
-import { Cache  } from './universal-cache';
+import { CacheService  } from './universal-cache';
 
 @Injectable()
 export class ApiService {
 
-  constructor(public _http: Http, public _cache: Cache) {
+  constructor(public _http: Http, public _cache: CacheService) {
 
   }
   // whatever domain/feature method name

@@ -13,51 +13,28 @@ import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { Cache } from './universal-cache';
-// import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-// import { LayoutModule } from '@progress/kendo-angular-layout';
-// import { InputsModule } from '@progress/kendo-angular-inputs';
-// import { ButtonsModule } from '@progress/kendo-angular-buttons';
-// import { GridModule } from '@progress/kendo-angular-grid';
-// import { ChartsModule } from '@progress/kendo-angular-charts';
-// import { DialogModule } from '@progress/kendo-angular-dialog';
-// import { PopupModule } from '@progress/kendo-angular-popup';
-// import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
-// import { SortableModule } from '@progress/kendo-angular-sortable';
-// import { UploadModule } from '@progress/kendo-angular-upload';
+import { CacheService } from './universal-cache';
+import { GridModule } from '@progress/kendo-angular-grid';
 
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [ AppComponent ],
   imports: [
-    UniversalModule, // NodeModule, NodeHttpModule, and NodeJsonpModule are included
     FormsModule,
-
     HomeModule,
     AboutModule,
-
-    // DropDownsModule,
-    // LayoutModule,
-    // InputsModule,
-    // ButtonsModule,
-    // GridModule,
-    // ChartsModule,
-    // DialogModule,
-    // PopupModule,
-    // ScrollViewModule,
-    // SortableModule,
-    // UploadModule,
-
-    AppRoutingModule
+    GridModule,
+    AppRoutingModule,
+    UniversalModule, // NodeModule, NodeHttpModule, and NodeJsonpModule are included
   ],
   providers: [
     { provide: 'isBrowser', useValue: isBrowser },
     { provide: 'isNode', useValue: isNode },
-    Cache
+    CacheService
   ]
 })
 export class MainModule {
-  constructor(public cache: Cache) {
+  constructor(public cache: CacheService) {
 
   }
   // we need to use the arrow function here to bind the context as this is a gotcha in Universal for now until it's fixed
