@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CacheService } from './universal-cache';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { LayoutModule } from '@progress/kendo-angular-layout';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -22,11 +23,11 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     UniversalModule, // NodeModule, NodeHttpModule, and NodeJsonpModule are included
     FormsModule,
-
     SharedModule,
     HomeModule,
     AboutModule,
     GridModule,
+    LayoutModule,
     AppRoutingModule
   ],
   providers: [
