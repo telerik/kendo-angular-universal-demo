@@ -16,5 +16,5 @@ const platformRef = platformUniversalDynamic();
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => // defer loading of Angular by 4 sec
     platformRef.bootstrapModule(MainModule),
-  2000);
+  1000);
 });

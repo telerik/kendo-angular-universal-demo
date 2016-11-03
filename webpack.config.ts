@@ -11,7 +11,19 @@ var commonConfig = {
       { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
       { test: /\.css$/, loader: 'raw-loader' },
-      { test: /\.json$/, loader: 'json-loader' }
+      { test: /\.json$/, loader: 'json-loader' },
+
+      {
+        test: /\.scss$/,
+        loaders: [
+          'raw-loader',
+          'sass'
+        ]
+      },
+      {
+        test: /\.(gif|png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000'
+      }
     ],
   },
   plugins: [
