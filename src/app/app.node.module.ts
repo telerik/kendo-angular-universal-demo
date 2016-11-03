@@ -4,7 +4,6 @@ function universalMaterialSupports(eventName: string): boolean { return Boolean(
 __platform_browser_private__.HammerGesturesPlugin.prototype.supports = universalMaterialSupports;
 // End Fix Material Support
 
-
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/node'; // for AoT we need to manually split universal packages
@@ -15,17 +14,20 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CacheService } from './universal-cache';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [ AppComponent ],
   imports: [
+    UniversalModule, // NodeModule, NodeHttpModule, and NodeJsonpModule are included
     FormsModule,
+
+    SharedModule,
     HomeModule,
     AboutModule,
     GridModule,
-    AppRoutingModule,
-    UniversalModule, // NodeModule, NodeHttpModule, and NodeJsonpModule are included
+    AppRoutingModule
   ],
   providers: [
     { provide: 'isBrowser', useValue: isBrowser },

@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 
 @Component({
   selector: 'app',
   template: `
     <div>
-      <a routerLink="/home">Home</a>
-      <a routerLink="/about">About</a>
     </div>
     <router-outlet></router-outlet>
-  `
+  `,
+  styleUrls: ['./app.style.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 

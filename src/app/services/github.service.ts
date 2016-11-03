@@ -14,24 +14,8 @@ export class GithubService {
     });
     constructor(public http: Http) { }
 
-    getGithubIssues(pages) {
-        return Observable.forkJoin(this.getIssuesUrls(pages));
-    }
-
-    getIssuesUrls({ pages }) {
-        const result = [];
-        for (let index = 1; index < pages; index++) {
-            result.push(
-                this.http.get(`${baseUrl}?state=all&page=${index}&per_page=100`, { headers: this.headers })
-                    .map(this.handleResponse)
-            );
-        }
-        return result;
-    }
-
-    getGithubUser(username) {
-        return this.http.get(`https://api.github.com/users/${username}`, { headers: this.headers })
-            .map(this.handleResponse);
+    handleResponse(res: Response): any {
+        return res.json();
     }
 
     getInitialData() {
@@ -41,12 +25,11 @@ export class GithubService {
             });
     }
 
-    getGithubIssue(id: number) {
-        return this.http.get(`${baseUrl}/${id}`, { headers: this.headers })
-            .map(this.handleResponse);
-    }
+    getNextPage(skip, take) {
+        const page = (skip / take) + 1
+        const issues = `?state=all&page=${page}&per_page=${take}`
 
-    handleResponse(res: Response): any {
-        return res.json();
+        return this.http.get( baseUrl + issues, { headers: this.headers })
+            .map(this.handleResponse);
     }
 }

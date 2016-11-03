@@ -7,6 +7,7 @@ import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CacheService } from './universal-cache';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -14,6 +15,8 @@ import { CacheService } from './universal-cache';
   imports: [
     UniversalModule, // BrowserModule, HttpModule, and JsonpModule are included
     FormsModule,
+
+    SharedModule,
     HomeModule,
     AboutModule,
 
