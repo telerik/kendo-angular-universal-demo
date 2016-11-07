@@ -29,7 +29,7 @@ Apps that run Angular Universal are built as normal Angular 2 applications, with
 
 ## Using Kendo UI with Universal Rendering
 
-For this tutorial we will use the [angular-universal-starter](https://github.com/angular/universal-starter) seed. You can find a project that includes a Kendo UI Grid and Tabstrip [here](https://github.com/telerik/kendo-angular-universal-demo/tree/master/src). Note that some of the Kendo UI components depend ot the `DOM` for resizing, an might not work as expected in a server rendered page.
+For this tutorial we will use the [angular-universal-starter](https://github.com/angular/universal-starter) seed. You can find a [sample project](https://github.com/telerik/kendo-angular-universal-demo/tree/master/src) that includes a Kendo UI Grid and Tabstrip. Note that some of the Kendo UI components depend ot the `DOM`, an might not work as expected in a server rendered page.
 
 To run the project, clone the repo, run `npm install` to install dependencies, and run `npm start` to fire up the server.
 
@@ -41,22 +41,26 @@ Including the Kendo UI components in the project is as easy as running `npm i -S
 
 In this sample app we are using Bootstrap along with the Kendo UI theme that was specifically created for Bootstrap v4 integration.
 
-Let's install the Kendo UI theme by running `npm install -S @telerik/kendo-theme-bootstrap`. And in the `app.component.ts` file you can include the scss file that will load your styles using the `stylesUrl` configuration.
-
-In the scss file that we will use to bundle our styles, we can import all the styles that will be used along the application. For example:
+Let's install the Kendo UI theme by running `npm install -S @telerik/kendo-theme-bootstrap`. Create a `app.style.scss` file that we will use to bundle our style. For example:
 
     @import "custom";
     @import '~bootstrap/scss/bootstrap';
     @import '~@telerik/kendo-theme-bootstrap/dist/all';
     @import 'dashboard.style';
-If we run the app now, we will get an error message that states we need to have the appropriate loaders. So let's add our loaders in the `webpack.config.js` file:
+
+Then register the file in your `app.component` `@Component` directive `styleUrls: ['./app.style.scss']`.
+    
+If we run the app now, we will get an error message that states we need to have the appropriate loaders. Let's add our loaders in the `webpack.config.js` file:
 `{test: /\.scss$/, loaders: ['raw-loader', 'sass'},`
 
 When we run the application this time, we should be able to see the styles loaded as part of the `<head>` section of the application.
 
 #### Fetch Data for the Server-Rendered View
 
-In the `backend/db.ts` file we will need to implement a request to fetch the data that will be used for the server-rendered part of the application from our API - in this case the GitHub API. We will install [request](https://github.com/request/request) which is a simplified HTTP request client by running `npm i -S request` from the console. And then in the `get()` method of the `backend/db.ts` file we will implement our logic to fetch data from GitHub using promises for the data and the total number of issues, this will be needed a little later - for the Grid's paging. The implementation can be seen [here](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/backend/db.ts).
+In the `backend/db.ts` file we will need to implement a request to fetch the data that will be used for the server-rendered part of the application from our API - in this case the GitHub API. We will:
+
+* Install [request](https://github.com/request/request) which is a simplified HTTP request client by running `npm i -S request` from the console
+* We will implement our logic to fetch data from GitHub in the `get()` method of [backend/db.ts](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/backend/db.ts)
 
 #### Caching
 
@@ -67,9 +71,10 @@ For the caching mechanisms all data requests in the application will be redirect
 #### Client data
 
 Any subsequent request for data - for example when the Grid pages its data, can be done in a similar way on the client. All we need to do is attach a handler for the Grid's `pageChange` event that will provide the `skip` and `take` parameters in the handler arguments, and then fetch data using Angular's `http` module.
-A sample implementation can be found [here](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/app/services/github.service.ts)
 
-## Troubleshooting
+A sample implementation can be found in [github.service.ts](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/app/services/github.service.ts)
+
+## See Also
 
 - Check the [universal-starter](https://github.com/angular/universal/issues) repository for any issues that might be related to your problem.
 - Have a question regarding Kendo UI for Angular 2? Browse the [StackOverflow kendo-ui-angular2 tag](http://stackoverflow.com/questions/tagged/kendo-ui-angular2).
