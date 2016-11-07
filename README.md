@@ -1,6 +1,6 @@
 ## What is Universal Rendering
 
-Universal rendering can also be called server-side rendering. The most popular scenario for server-side rendering is to handle the initial render when a user visits the app for the first time. The server will render the Angular application from the server. Once loaded, the client-side application will take over and continue from the server-side rendered state.
+Universal rendering can also be called server-side rendering. The most popular scenario for server-side rendering is to handle the initial render when a user visits the app for the first time. The server will render the Angular application , once loaded, the client-side application will take over and continue from the server-side rendered state.
 
 ## Why Use Server Rendered Content
 
@@ -9,9 +9,9 @@ Universal rendering can also be called server-side rendering. The most popular s
 
 ## How Does Universal Rendering Work in Angular
 
-With the Angular 2 Universal rendering, the client loads as usual, but a fully rendered view that the user can see immediately is included in the server response. The rest of the resources will download in the background, and once the client is fully bootstrapped it will take over the page and continue its lifecycle as a standard single-page application.
-
 Angular Universal was originally built to work with a node.js back-end. There are adapters for most popular node.js server-side frameworks such as Express or Hapi.js. On top of that Angular Universal also has [ASP.NET Core support](https://github.com/aspnet/JavaScriptServices).
+
+With the Angular 2 Universal rendering, the client loads as usual, but a fully rendered view that the user can see immediately is included in the server response. The rest of the resources will download in the background, and once the client is fully bootstrapped it will take over the page and continue its lifecycle as a standard single-page application.
 
 #### What about user interaction during loading?
 
@@ -29,7 +29,7 @@ Apps that run Angular Universal are built as normal Angular 2 applications, with
 
 ## Using Kendo UI with Universal Rendering
 
-For this tutorial we will use the [angular-universal-starter](https://github.com/angular/universal-starter) seed. You can find a project that includes a Kendo UI Grid and Tabstrip [here](https://github.com/telerik/kendo-angular-universal-demo/tree/master/src).
+For this tutorial we will use the [angular-universal-starter](https://github.com/angular/universal-starter) seed. You can find a project that includes a Kendo UI Grid and Tabstrip [here](https://github.com/telerik/kendo-angular-universal-demo/tree/master/src). Note that some of the Kendo UI components depend ot the `DOM` for resizing, an might not work as expected in a server rendered page.
 
 To run the project, clone the repo, run `npm install` to install dependencies, and run `npm start` to fire up the server.
 
