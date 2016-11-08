@@ -1,6 +1,6 @@
 <div class="main">
-  <h2 class="card-title">Kendo UI for Angular Universal Rendering</h2>
-  <p class="card-text">This is a sample application that shows how to use Kendo UI for Angular 2 components in a universally rendered app.</p>
+	<h2 class="card-title">Kendo UI for Angular Universal Rendering</h2>
+	<p class="card-text">This is a sample application that shows how to use Kendo UI for Angular 2 components in a universally rendered app.</p>
 	<kendo-tabstrip>
 		<kendo-tabstrip-tab [title]="'Issues'" [selected]="true">
 			<template kendoTabContent>
@@ -13,10 +13,10 @@
 					<kendo-grid-column field="title" title="Title">
 						<template kendoCellTemplate let-dataItem>
 							<span [ngClass]="{
-            'issue-status': true,
-            'issue-open': dataItem.state === 'open',
-            'issue-closed': dataItem.state !== 'open' }">
-          </span> {{ dataItem.title }}
+								'issue-status': true,
+								'issue-open': dataItem.state === 'open',
+								'issue-closed': dataItem.state !== 'open' }">
+							</span> {{ dataItem.title }}
 						</template>
 					</kendo-grid-column>
 					<kendo-grid-column field="labels" title="Labels" width="100">

@@ -20,9 +20,7 @@ export class GithubService {
 
     getInitialData() {
         return this.http.get(`http://localhost:3000/data.json`)
-            .map((res) => {
-                return res.json();
-            });
+            .map(this.handleResponse);
     }
 
     getNextPage(skip, take) {
