@@ -1,81 +1,109 @@
-## What is Universal Rendering
+# Universal Rendering
 
-Universal rendering can also be called server-side rendering. The most popular scenario for server-side rendering is to handle the initial render when a user visits the app for the first time. The server will render the Angular application , once loaded, the client-side application will take over and continue from the server-side rendered state.
+[Angular Universal library](https://universal.angular.io/) is used to render Angular 2 applications on the server.
 
-## Why Use Server Rendered Content
+## Overview
 
-- Performance - showing static server-rendered view for first-time site visitors can drastically improve the perceived performance. 
-- SEO - although some of the search engines will crawl and index dynamic data, there are still many search engines that expect plain HTML. Providing a static server-side rendered content is an efficient way to ensure that all search engines can access your website.
+This section provides information on what Angular Universal is and how it works.
 
-## How Does Universal Rendering Work in Angular
+### What Is Universal Rendering
 
-Angular Universal was originally built to work with a node.js back-end. There are adapters for most popular node.js server-side frameworks such as Express or Hapi.js. On top of that Angular Universal also has [ASP.NET Core support](https://github.com/aspnet/JavaScriptServices).
+Universal rendering can also be called server-side rendering. The most popular scenario for server-side rendering is to handle the initial render when a user visits the application for the first time. The server will render the Angular application and once loaded, the client-side application will take over and continue from the server-side rendered state.
 
-With the Angular 2 Universal rendering, the client loads as usual, but a fully rendered view that the user can see immediately is included in the server response. The rest of the resources will download in the background, and once the client is fully bootstrapped it will take over the page and continue its lifecycle as a standard single-page application.
+For more information, refer to the [Angular Universal documentation](https://github.com/angular/universal/blob/master/DOCUMENTATION.md).
 
-#### What about user interaction during loading?
+### Why Use Server-Rendered Content
 
-What happens with all the user events that occur in this 3-5 seconds time span when the server-rendered view is shown right away, but the client-side code is not ready yet? The Angular team came up with the [preboot](https://github.com/angular/preboot) library in order to solve this problem. The library records and plays back events and even responds immediately to some of them. It also does some sweet stuff like persisting the focus when the page is re-rendered and buffering client-side re-rendering for a smoother transition
+Basically, the reasons to opt for server-side rendered content are:
 
-## Creating Universal Apps
+- To improve performance&mdash;User experience hugely improves when a static server-rendered view is displayed to first-time website visitors.
+- To boost SEO&mdash;Although some of the search engines crawl and index dynamic data, still many of them expect plain HTML. An efficient way to ensure that all search engines can access your website is to provide static server-rendered content.
 
-Apps that run Angular Universal are built as normal Angular 2 applications, with some caveats:
+### How Does Universal Rendering Work in Angular
 
-- `window`, `document` and `navigator` objects do not exist on the server, so their usage should be restricted on the server. Use `isBrowser` / `isNode` from the 'angular2-universal' package to restrict where client/server code is executed.
+Angular Universal was originally built to work with a node.js back-end. There are adapters for most popular node.js server-side frameworks such as Express or Hapi.js. On top of that, Angular Universal also provides [ASP.NET Core support](https://github.com/aspnet/JavaScriptServices).
 
-- DOM manipulation - you cannot manipulate the DOM directly, for the same reason mentioned above. Instead use the [Renderer](https://angular.io/docs/ts/latest/api/core/index/Renderer-class.html) class. 
-- In order to spare duplication of XHR requests, a caching mechanism should be implemented. A good example can be found in the universal-starter project [here](https://github.com/angular/universal-starter/blob/master/src/backend/cache.ts).
-- Using `templateUrl` and `stylesUrl` will require the `angular2-template-loader` to be included in your webpack.config file.
+With the Angular 2 Universal rendering the client loads as usual, the user immediately sees a fully rendered view that is included in the server response. The rest of the resources download in the background and once the client is fully bootstrapped, the view continues its lifecycle as a standard single-page application.
 
-## Using Kendo UI with Universal Rendering
+### What about User Interaction during Loading
 
-For this tutorial we will use the [angular-universal-starter](https://github.com/angular/universal-starter) seed. You can find a [sample project](https://github.com/telerik/kendo-angular-universal-demo/tree/master/src) that includes a Kendo UI Grid and Tabstrip. Note that some of the Kendo UI components depend ot the `DOM`, an might not work as expected in a server rendered page.
+What happens with all the user events that occur in this 3-5 seconds time span when the server-rendered view is shown right away, but the client-side code is not ready yet?
 
-To run the project, clone the repo, run `npm install` to install dependencies, and run `npm start` to fire up the server.
+To handle this issue, the Angular team provides the [preboot](https://github.com/angular/preboot) library. The library records events, plays them back, and immediately responds to some of them. It also provides useful options, such as persisting the focus when the page is re-rendered and buffering client-side re-rendering for a smoother transition.
 
-#### Including the Kendo UI Components
+## Known Limitations
 
-Including the Kendo UI components in the project is as easy as running `npm i -S @progress/kendo-angular-grid @progress/kendo-angular-layout`. Make sure that you have followed the [installation guide](http://www.telerik.com/kendo-angular-ui/getting-started/#installation) in order to setup your Progress npm registry, prior to that.
+Applications that run Angular Universal are built as Angular 2 applications with the following caveats:
 
-#### Add the Styles
+- The `window`, `document`, and `navigator` objects do not exist on the server. That is why their usage has to be restricted on the server. To restrict the locations where the client or server code is executed, use the `isBrowser` or `isNode` configuration from the `angular2-universal` package.
+- It is not possible to manipulate the DOM directly because of the reason previously mentioned. Use the [`Renderer`](https://angular.io/docs/ts/latest/api/core/index/Renderer-class.html) class instead.
+- To spare the duplication of XHR requests, implement a caching mechanism. For a good example on how to do this, refer to the [Angular Universal starter project](https://github.com/angular/universal-starter/blob/master/src/backend/cache.ts).
+- If you use `templateUrl` and `stylesUrl`, you have to include the `angular2-template-loader` to in your `webpack.config` file.
 
-In this sample app we are using Bootstrap along with the Kendo UI theme that was specifically created for Bootstrap v4 integration.
+## Creating Universally Rendered Applications
 
-Let's install the Kendo UI theme by running `npm install -S @telerik/kendo-theme-bootstrap`. Create a `app.style.scss` file that we will use to bundle our style. For example:
+To demonstrate how to use Kendo UI to build applications with Angular Universal, the examples provided in this section use the [`angular-universal-starter`](https://github.com/angular/universal-starter) seed.
 
+### Running the Sample Project
+
+For a sample project that includes a Kendo UI Grid and Tabstrip for Angular 2, refer to [this repository](https://github.com/telerik/kendo-angular-universal-demo/tree/master/src). Note that some of the Kendo UI components depend on the DOM and might not work as expected in a server-rendered page.
+
+To run the project:
+
+1. Clone the repository.
+2. Run `npm install` to install the dependencies.
+3. Run `npm start` to fire up the server.
+
+### Including Kendo UI Components
+
+To add Kendo UI components to the project:
+
+1. Follow the [installation guide](http://www.telerik.com/kendo-angular-ui/getting-started/#installation) to set up your Progress npm registry.
+2. Run `npm i -S @progress/kendo-angular-grid @progress/kendo-angular-layout`.
+
+### Adding the Styles
+
+The sample application uses Bootstrap along with the Kendo UI theme that is specifically created for the Bootstrap v4 integration.
+
+To add the styles to the project:
+
+1. Install the Kendo UI theme by running `npm install -S @telerik/kendo-theme-bootstrap`.
+2. Create an `app.style.scss` file that you will use to bundle your style.
+
+    ```ts-no-run
     @import "custom";
     @import '~bootstrap/scss/bootstrap';
     @import '~@telerik/kendo-theme-bootstrap/dist/all';
     @import 'dashboard.style';
+    ```
 
-Then register the file in your `app.component` `@Component` directive `styleUrls: ['./app.style.scss']`.
-    
-If we run the app now, we will get an error message that states we need to have the appropriate loaders. Let's add our loaders in the `webpack.config.js` file:
-`{test: /\.scss$/, loaders: ['raw-loader', 'sass'},`
+3. Register the file in your component directive by `styleUrls: ['./app.style.scss']`.
 
-When we run the application this time, we should be able to see the styles loaded as part of the `<head>` section of the application.
+4. If you run the application at this point, you get an error message which states that you need to have the appropriate loaders. To add the loaders to the `webpack.config.js` file, include `{test: /\.scss$/, loaders: ['raw-loader', 'sass'},`.
 
-#### Fetch Data for the Server-Rendered View
+5. Run the application again. Now the styles should be available and loaded as part of the `<head>` section.
 
-In the `backend/db.ts` file we will need to implement a request to fetch the data that will be used for the server-rendered part of the application from our API - in this case the GitHub API. We will:
+### Fetching Data for the Server-Rendered View
 
-* Install [request](https://github.com/request/request) which is a simplified HTTP request client by running `npm i -S request` from the console
-* We will implement our logic to fetch data from GitHub in the `get()` method of [backend/db.ts](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/backend/db.ts)
+To fetch the data that will be used for the server-rendered part of the application from the API&mdash;in this case the GitHub API&mdash;implement a request in the `backend/db.ts` file:
 
-#### Caching
+* To install the [`request`](https://github.com/request/request), which is a simplified HTTP request client, run `npm i -S request` from the console.
+* To implement the logic to fetch data from GitHub, configure the `get()` method of [backend/db.ts](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/backend/db.ts).
 
-When the server view is shown to the user it will use the data that we have already fetched on the server. However, during the second rendering, when the client application is bootstrapped we would like to avoid a second fetch of the same data.
+### Caching Data
 
-For the caching mechanisms all data requests in the application will be redirected to the `/data.json`. These requests will be handled by the [serverApi](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/backend/api.ts) that will return the cached data if it is already available.
+When the server view is rendered to the user, it will use the data you have already fetched on the server. However, during the second rendering when the client application is bootstrapped, you need to avoid a second fetch of the same data.
 
-#### Client data
+All data requests for the caching mechanisms in the application will be redirected to `/data.json`. These requests will be handled by [`serverApi`](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/backend/api.ts) that will return the cached data if it is already available.
 
-Any subsequent request for data - for example when the Grid pages its data, can be done in a similar way on the client. All we need to do is attach a handler for the Grid's `pageChange` event that will provide the `skip` and `take` parameters in the handler arguments, and then fetch data using Angular's `http` module.
+### Requesting Client Data
+
+Any subsequent requests for data&mdash;for example, when the Grid pages its data&mdash;can be done in a similar way on the client. To manage this process, attach a handler for the `pageChange` event of the Grid that will provide the `skip` and `take` parameters in the handler arguments. Then fetch the data using the Angular `http` module.
 
 A sample implementation can be found in [github.service.ts](https://github.com/telerik/kendo-angular-universal-demo/blob/master/src/app/services/github.service.ts)
 
-## See Also
+## Suggested Links
 
-- Check the [universal-starter](https://github.com/angular/universal/issues) repository for any issues that might be related to your problem.
-- Have a question regarding Kendo UI for Angular 2? Browse the [StackOverflow kendo-ui-angular2 tag](http://stackoverflow.com/questions/tagged/kendo-ui-angular2).
-- Found a Kendo UI bug? Kendo UI for Angular 2 uses GitHub issues as an official bug tracker. The [telerik/kendo-angular2](https://github.com/telerik/kendo-angular2/issues) repository is the right place to share your feedback.
+- For issues that might be related to your project, see the [universal-starter](https://github.com/angular/universal/issues) repository.
+- For questions about Kendo UI for Angular 2, browse the [StackOverflow `kendo-ui-angular2` tag](http://stackoverflow.com/questions/tagged/kendo-ui-angular2) or the [FAQs]({% slug faq_newsite_kendouiforangular %}).
+- Kendo UI for Angular 2 uses GitHub issues as official bug trackers. To report a bug or share your feedback, submit a GitHub issue to the [telerik/kendo-angular2](https://github.com/telerik/kendo-angular2/issues) repository.
