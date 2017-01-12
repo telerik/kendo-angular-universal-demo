@@ -2,6 +2,11 @@
 
 [Angular Universal library](https://universal.angular.io/) is used to render Angular 2 applications on the server.
 
+> **Important**
+>
+> Angular Universal does not currently work with Angular 2.1 and later.
+> See [angular/universal#603](https://github.com/angular/universal/issues/603)
+
 ## Overview
 
 This section provides information on what Angular Universal is and how it works.
