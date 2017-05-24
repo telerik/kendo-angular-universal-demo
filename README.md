@@ -6,6 +6,24 @@
 >
 > For more information, refer to [angular/universal#603](https://github.com/angular/universal/issues/603).
 
+## Table of Contents
+
+* [Overview](#overview)
+    * [What Is Universal Rendering](#what-is-universal-rendering)
+    * [Why Use Server-Rendered Content](#why-use-server-rendered-content)
+    * [How Does It Work in Angular](#how-does-it-work-in-angular)
+    * [What about User Interaction during Loading](#what-about-user-interaction-during-loading)
+* [Creating Universally Rendered Applications](#creating-universally-rendered-applications)
+    * [Run the Sample Project](#run-the-sample-project)
+    * [Include Kendo UI Components](#include-kendo-ui-components)
+    * [Add the Styles](#add-the-styles)
+    * [Fetch Data for the Server-Rendered View](#fetch-data-for-the-server-rendered-view)
+    * [Cache Data](#cache-data)
+    * [Request Client Data](#request-client-data)
+* [Known Limitations](#known-limitations)
+* [Suggested Links](#suggested-links)
+* [Contribution](#contribution)
+
 ## Overview
 
 This section provides information on what Angular Universal is and how it works.
@@ -111,3 +129,12 @@ Applications that run Angular Universal are built as Angular 2 applications with
 - For issues that might be related to your project, see the [universal-starter](https://github.com/angular/universal/issues) repository.
 - For questions about Kendo UI for Angular 2, browse the [StackOverflow `kendo-ui-angular2` tag](http://stackoverflow.com/questions/tagged/kendo-ui-angular2) or the [FAQs]({% slug faq_newsite_kendouiforangular %}).
 - Kendo UI for Angular 2 uses GitHub issues as official bug trackers. To report a bug or share your feedback, submit a GitHub issue to the [telerik/kendo-angular2](https://github.com/telerik/kendo-angular2/issues) repository.
+
+## Contribution
+
+We accept contributions from the public.
+
+Before you pose your suggestions, please make sure that you:
+
+1. Read and sign the [Kendo UI for Angular Contribution License Agreement (CLA)](goo.gl/forms/dXc1RaE8le6rVZ0h1). The CLA confirms that you acknowledge the legal aspects of your contributions.
+2. Submit a Pull Request.
