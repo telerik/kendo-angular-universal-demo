@@ -6,6 +6,23 @@
 >
 > For more information, refer to [angular/universal#603](https://github.com/angular/universal/issues/603).
 
+## Table of Contents
+
+* [Overview](#overview)
+    * [What Is Universal Rendering](#what-is-universal-rendering)
+    * [Why Use Server-Rendered Content](#why-use-server-rendered-content)
+    * [How Does It Work in Angular](#how-does-it-work-in-angular)
+    * [What about User Interaction during Loading](#what-about-user-interaction-during-loading)
+* [Creating Universally Rendered Applications](#creating-universally-rendered-applications)
+    * [Run the Sample Project](#run-the-sample-project)
+    * [Include Kendo UI Components](#include-kendo-ui-components)
+    * [Add the Styles](#add-the-styles)
+    * [Fetch Data for the Server-Rendered View](#fetch-data-for-the-server-rendered-view)
+    * [Cache Data](#cache-data)
+    * [Request Client Data](#request-client-data)
+* [Known Limitations](#known-limitations)
+* [Suggested Links](#suggested-links)
+
 ## Overview
 
 This section provides information on what Angular Universal is and how it works.
