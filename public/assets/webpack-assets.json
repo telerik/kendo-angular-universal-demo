@@ -1,0 +1,9 @@
+{
+  "app": {
+    "js": "assets/app.57f39682d55d456c12b3.bundle.js",
+    "css": "assets/app.57f39682d55d456c12b3.style.css"
+  },
+  "polyfills": {
+    "js": "assets/polyfills.087d42e5c1ecb4b33604.bundle.js"
+  }
+}
