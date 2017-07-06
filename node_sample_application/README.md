@@ -1,7 +1,7 @@
 # ng-seed/universal
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
-**`ng-seed/spa`** is a seed project for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide) in file and application organization, providing the following features:
+The [ng-seed/universal](https://github.com/ng-seed/universal) project is a seed for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide) in file and application organization, providing the following features:
 
 - Ready-to-go build system using [gulp] and [Webpack] for working with [TypeScript].
 - Adjustable build configuration via `json` file (`./config/build-config.json`).
