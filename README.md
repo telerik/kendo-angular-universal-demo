@@ -1,11 +1,11 @@
 # Kendo UI for Angular: Angular Universal
 
-This repository presents a Node-based and an ASP.NET Core-based applications which demonstrate how to use Kendo UI for Angular and Angular Universal.
+This repository contains a Node-based and an ASP.NET Core-based sample applications which demonstrate how to use Kendo UI for Angular and Angular Universal.
 
 ## Get Started
 
-1. Clone this repository by using your favorite Git client or by executing `git clone https://github.com/telerik/kendo-angular-quickstart-cli.git`.
-1. Enter the project directory by running `cd kendo-angular-quickstart-cli`.
+1. Clone this repository by using your favorite Git client or by executing `git clone https://github.com/telerik/kendo-angular-universal-demo.git`.
+1. Enter the project directory by running `cd kendo-angular-universal-demo`.
 1. Run `npm install` to install the project dependencies.
 
 ## Table of Contents
