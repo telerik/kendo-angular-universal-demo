@@ -19,7 +19,7 @@ This repository presents a Node-based and an ASP.NET Core-based applications whi
 
 ### Node-Based Project
 
-To run the application, run the following commands:
+To run the application, execute the following commands:
 
 ```
 # use npm (or yarn) to install the dependencies
@@ -46,7 +46,7 @@ npm run serve
 
 ### ASP.NET Core-Based Project
 
-To run the application, run the following commands:
+To run the application, execute the following commands:
 
 ```
 # install the ASP.NET Core packages
