@@ -1,6 +1,6 @@
 # Kendo UI for Angular: Angular Universal
 
-This repository presents a Node-based and ASP.NET Core-based applications which demonstrate how to use Kendo UI for Angular and Angular Universal.
+This repository presents a Node-based and an ASP.NET Core-based applications which demonstrate how to use Kendo UI for Angular and Angular Universal.
 
 ## Get Started
 
