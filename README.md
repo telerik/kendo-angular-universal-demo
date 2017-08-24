@@ -6,7 +6,6 @@ This repository contains a Node-based and an ASP.NET Core-based sample applicati
 
 1. Clone this repository by using your favorite Git client or by executing `git clone https://github.com/telerik/kendo-angular-universal-demo.git`.
 1. Enter the project directory by running `cd kendo-angular-universal-demo`.
-1. Run `npm install` to install the project dependencies.
 
 ## Table of Contents
 
