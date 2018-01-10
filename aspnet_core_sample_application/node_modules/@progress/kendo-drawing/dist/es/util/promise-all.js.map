@@ -1,0 +1,1 @@
+{"version":3,"file":"promise-all.js","sources":["promise-all.js"],"sourcesContent":["export default function promiseAll(promises) {\n    return Promise.all(promises);\n}"],"names":[],"mappings":"AAAA,eAAe,SAAS,UAAU,CAAC,QAAQ,EAAE;IACzC,OAAO,OAAO,CAAC,GAAG,CAAC,QAAQ,CAAC,CAAC;"}

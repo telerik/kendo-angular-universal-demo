@@ -1,5 +1,5 @@
 import { Component, Inject, ViewEncapsulation } from "@angular/core";
-import { Http } from "@angular/http";
+import { HttpClient } from '@angular/common/http';
 import "rxjs/add/observable/fromEvent";
 
 @Component({
@@ -11,9 +11,9 @@ import "rxjs/add/observable/fromEvent";
 export class FetchDataComponent {
     public forecasts: IWeatherForecast[];
 
-    constructor(http: Http, @Inject("ORIGIN_URL") originUrl: string) {
+    constructor(http: HttpClient, @Inject("ORIGIN_URL") originUrl: string) {
         http.get(originUrl + "/api/SampleData/WeatherForecasts").subscribe(result => {
-            this.forecasts = result.json() as IWeatherForecast[];
+            this.forecasts = result as IWeatherForecast[];
         });
     }
 }

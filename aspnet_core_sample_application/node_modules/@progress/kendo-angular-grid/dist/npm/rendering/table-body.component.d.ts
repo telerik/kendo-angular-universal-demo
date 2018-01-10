@@ -1,0 +1,73 @@
+import { SimpleChange, NgZone, Renderer2, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { GroupDescriptor } from '@progress/kendo-data-query';
+import { ColumnBase } from '../columns/column-base';
+import { DetailTemplateDirective } from './details/detail-template.directive';
+import { DetailsService } from './details/details.service';
+import { GroupsService } from '../grouping/groups.service';
+import { GroupItem, Item, GroupFooterItem } from '../data/data.iterators';
+import { ChangeNotificationService } from '../data/change-notification.service';
+import { NoRecordsTemplateDirective } from './no-records-template.directive';
+import { EditService } from '../editing/edit.service';
+import { LocalizationService } from '@progress/kendo-angular-l10n';
+import { RowClassFn } from './common/row-class';
+import { SelectableSettings } from '../selection/selectable-settings';
+import { DomEventsService } from '../common/dom-events.service';
+import { SelectionService } from "../selection/selection.service";
+/**
+ * @hidden
+ */
+export declare class TableBodyComponent implements OnInit, OnDestroy {
+    detailsService: DetailsService;
+    groupsService: GroupsService;
+    private changeNotification;
+    editService: EditService;
+    private localization;
+    private ngZone;
+    private renderer;
+    private element;
+    private domEvents;
+    selectionService: SelectionService;
+    columns: Array<ColumnBase>;
+    groups: Array<GroupDescriptor>;
+    detailTemplate: DetailTemplateDirective;
+    noRecordsTemplate: NoRecordsTemplateDirective;
+    data: Array<GroupItem | Item | GroupFooterItem>;
+    skip: number;
+    selectable: SelectableSettings | boolean;
+    noRecordsText: string;
+    skipGroupDecoration: boolean;
+    showGroupFooters: boolean;
+    lockedColumnsCount: number;
+    private clickSubscription;
+    rowClass: RowClassFn;
+    constructor(detailsService: DetailsService, groupsService: GroupsService, changeNotification: ChangeNotificationService, editService: EditService, localization: LocalizationService, ngZone: NgZone, renderer: Renderer2, element: ElementRef, domEvents: DomEventsService, selectionService: SelectionService);
+    readonly newDataItem: any;
+    toggleRow(index: number, dataItem: any): boolean;
+    trackByFn(_: number, item: GroupItem | Item): any;
+    isExpanded(index: number): boolean;
+    detailButtonStyles(index: number): any;
+    isGroup(item: Item | GroupItem): boolean;
+    isDataItem(item: Item | GroupItem): boolean;
+    isFooter(item: Item | GroupItem | GroupFooterItem): boolean;
+    isInExpandedGroup(item: Item): boolean;
+    isParentGroupExpanded(item: any): boolean;
+    isOdd(item: any): boolean;
+    isSelectable(): boolean;
+    isRowSelected(item: any): boolean;
+    selectionCheckboxId(itemIndex: any): string;
+    ngOnChanges(changes: {
+        [propertyName: string]: SimpleChange;
+    }): void;
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    readonly columnsSpan: number;
+    readonly colSpan: number;
+    readonly footerColumns: ColumnBase[];
+    showGroupHeader(item: any): boolean;
+    protected isSpanColumn(column: any): boolean;
+    protected isCheckboxColumn(column: any): boolean;
+    protected childColumns(column: ColumnBase): ColumnBase[];
+    protected isBoundColumn(column: any): boolean;
+    private clickHandler(eventArg);
+    private cellClickArgs(cell, row, eventArg);
+}

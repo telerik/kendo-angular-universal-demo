@@ -1,0 +1,10 @@
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\bin\Debug\netcoreapp1.1\AngularSpa.deps.json
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\bin\Debug\netcoreapp1.1\AngularSpa.runtimeconfig.json
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\bin\Debug\netcoreapp1.1\AngularSpa.runtimeconfig.dev.json
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\bin\Debug\netcoreapp1.1\AngularSpa.dll
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\bin\Debug\netcoreapp1.1\AngularSpa.pdb
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\obj\Debug\netcoreapp1.1\AngularSpa.csproj.CoreCompileInputs.cache
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\obj\Debug\netcoreapp1.1\AngularSpa.AssemblyInfoInputs.cache
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\obj\Debug\netcoreapp1.1\AngularSpa.AssemblyInfo.cs
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\obj\Debug\netcoreapp1.1\AngularSpa.dll
+D:\kendo-demos\kendo-angular-universal-demo\aspnet_core_sample_application\obj\Debug\netcoreapp1.1\AngularSpa.pdb

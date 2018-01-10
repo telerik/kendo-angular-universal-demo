@@ -1,0 +1,1 @@
+{"version":3,"file":"collision.js","sources":["collision.js"],"sourcesContent":["export default {\n    \"fit\": \"fit\",\n    \"flip\": \"flip\"\n};\n"],"names":[],"mappings":"AAAA,eAAe;IACX,KAAK,EAAE,KAAK;IACZ,MAAM,EAAE,MAAM;CACjB,CAAC;"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"color.js","sources":["color.js"],"sourcesContent":["export { default as parseColor } from './color/parse-color';\nexport { default as Color } from './color/color';"],"names":[],"mappings":"AAAA,SAAS,OAAO,IAAI,UAAU,QAAQ,qBAAqB,CAAC;AAC5D,SAAS,OAAO,IAAI,KAAK,QAAQ,eAAe"}

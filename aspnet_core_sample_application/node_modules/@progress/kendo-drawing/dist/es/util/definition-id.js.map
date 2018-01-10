@@ -1,0 +1,1 @@
+{"version":3,"file":"definition-id.js","sources":["definition-id.js"],"sourcesContent":["let defId = 1;\n\nexport default function definitionId() {\n    return \"kdef\" + defId++;\n}"],"names":["let"],"mappings":"AAAAA,GAAG,CAAC,KAAK,GAAG,CAAC,CAAC;;AAEd,eAAe,SAAS,YAAY,GAAG;IACnC,OAAO,MAAM,GAAG,KAAK,EAAE,CAAC;"}

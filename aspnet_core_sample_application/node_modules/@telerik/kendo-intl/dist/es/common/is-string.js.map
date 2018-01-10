@@ -1,0 +1,1 @@
+{"version":3,"file":"is-string.js","sources":["is-string.js"],"sourcesContent":["export default function isString(value) {\n    return typeof value === \"string\";\n}"],"names":[],"mappings":"AAAA,eAAe,SAAS,QAAQ,CAAC,KAAK,EAAE;IACpC,OAAO,OAAO,KAAK,KAAK,QAAQ,CAAC;"}

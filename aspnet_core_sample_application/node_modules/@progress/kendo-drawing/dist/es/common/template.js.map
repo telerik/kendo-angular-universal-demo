@@ -1,0 +1,1 @@
+{"version":3,"file":"template.js","sources":["template.js"],"sourcesContent":["export default function template() {\n    // XXX: no template engine for now\n    throw new Error(\"String template not yet supported.  Pass a function and use your preferred template engine.\");\n}"],"names":[],"mappings":"AAAA,eAAe,SAAS,QAAQ,GAAG;;IAE/B,MAAM,IAAI,KAAK,CAAC,6FAA6F,CAAC,CAAC;"}

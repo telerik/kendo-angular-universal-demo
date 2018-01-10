@@ -1,0 +1,1 @@
+{"version":3,"file":"defined.js","sources":["defined.js"],"sourcesContent":["const UNDEFINED = \"undefined\";\n\nexport default function defined(value) {\n    return typeof value !== UNDEFINED;\n}"],"names":["const"],"mappings":"AAAAA,GAAK,CAAC,SAAS,GAAG,WAAW,CAAC;;AAE9B,eAAe,SAAS,OAAO,CAAC,KAAK,EAAE;IACnC,OAAO,OAAO,KAAK,KAAK,SAAS,CAAC;"}

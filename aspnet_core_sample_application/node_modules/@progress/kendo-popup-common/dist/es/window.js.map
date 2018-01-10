@@ -1,0 +1,1 @@
+{"version":3,"file":"window.js","sources":["window.js"],"sourcesContent":["const getWindow = (element) => ( element.ownerDocument.defaultView );\n\nexport default getWindow;\n"],"names":["const"],"mappings":"AAAAA,GAAK,CAAC,SAAS,GAAG,SAAA,CAAC,OAAO,EAAE,AAAG,SAAA,EAAE,OAAO,CAAC,aAAa,CAAC,WAAW,EAAE,GAAA,CAAC;;AAErE,eAAe,SAAS,CAAC;"}
