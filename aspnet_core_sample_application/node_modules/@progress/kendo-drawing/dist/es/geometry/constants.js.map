@@ -1,1 +1,0 @@
-{"version":3,"file":"constants.js","sources":["constants.js"],"sourcesContent":["const PRECISION = 10;\n\nexport { PRECISION };"],"names":["const"],"mappings":"AAAAA,GAAK,CAAC,SAAS,GAAG,EAAE,CAAC;;AAErB,SAAS,SAAS"}

@@ -1,1 +1,0 @@
-{"version":3,"file":"document.js","sources":["document.js"],"sourcesContent":["const getDocument = (element) => ( element.ownerDocument.documentElement );\n\nexport default getDocument;\n"],"names":["const"],"mappings":"AAAAA,GAAK,CAAC,WAAW,GAAG,SAAA,CAAC,OAAO,EAAE,AAAG,SAAA,EAAE,OAAO,CAAC,aAAa,CAAC,eAAe,EAAE,GAAA,CAAC;;AAE3E,eAAe,WAAW,CAAC;"}

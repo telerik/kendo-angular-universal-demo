@@ -1,1 +1,0 @@
-{"version":3,"file":"last.js","sources":["last.js"],"sourcesContent":["export default function last(array) {\n    if (array) {\n        return array[array.length - 1];\n    }\n}"],"names":[],"mappings":"AAAA,eAAe,SAAS,IAAI,CAAC,KAAK,EAAE;IAChC,IAAI,KAAK,EAAE;QACP,OAAO,KAAK,CAAC,KAAK,CAAC,MAAM,GAAG,CAAC,CAAC,CAAC;KAClC;"}

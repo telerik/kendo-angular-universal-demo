@@ -1,1 +1,0 @@
-{"version":3,"file":"event-element.js","sources":["event-element.js"],"sourcesContent":["export default function eventElement(e = {}) {\n    return e.touch ? e.touch.initialTouch : e.target;\n}"],"names":[],"mappings":"AAAA,eAAe,SAAS,YAAY,CAAC,CAAM,EAAE,CAAP;yBAAA,GAAG,EAAE;AAAG;IAC1C,OAAO,CAAC,CAAC,KAAK,GAAG,CAAC,CAAC,KAAK,CAAC,YAAY,GAAG,CAAC,CAAC,MAAM,CAAC;"}

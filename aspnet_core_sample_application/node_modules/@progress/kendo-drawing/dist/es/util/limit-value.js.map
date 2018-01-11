@@ -1,1 +1,0 @@
-{"version":3,"file":"limit-value.js","sources":["limit-value.js"],"sourcesContent":["export default function limitValue(value, min, max) {\n    return Math.max(Math.min(value, max), min);\n}"],"names":[],"mappings":"AAAA,eAAe,SAAS,UAAU,CAAC,KAAK,EAAE,GAAG,EAAE,GAAG,EAAE;IAChD,OAAO,IAAI,CAAC,GAAG,CAAC,IAAI,CAAC,GAAG,CAAC,KAAK,EAAE,GAAG,CAAC,EAAE,GAAG,CAAC,CAAC;"}

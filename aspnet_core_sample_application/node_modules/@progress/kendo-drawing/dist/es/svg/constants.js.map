@@ -1,1 +1,0 @@
-{"version":3,"file":"constants.js","sources":["constants.js"],"sourcesContent":["const SVG_NS = \"http://www.w3.org/2000/svg\";\nconst NONE = \"none\";\n\nexport { SVG_NS, NONE };"],"names":["const"],"mappings":"AAAAA,GAAK,CAAC,MAAM,GAAG,4BAA4B,CAAC;AAC5CA,GAAK,CAAC,IAAI,GAAG,MAAM,CAAC;;AAEpB,SAAS,MAAM,EAAE,IAAI"}
