@@ -1,84 +1,89 @@
-# ng-seed/universal
-> Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/1016365/10639063/138338bc-7806-11e5-8057-d34c75f3cafc.png" alt="Universal Angular" height="320"/>
+</p>
 
-The [ng-seed/universal](https://github.com/ng-seed/universal) project is a seed for Angular Universal apps following the common patterns and [best practices](https://angular.io/styleguide) in file and application organization, providing the following features:
+# Angular Universal Starter [![Universal Angular](https://img.shields.io/badge/universal-angular2-brightgreen.svg?style=flat)](https://github.com/angular/universal)
+> Server-Side Rendering for Angular
 
-- Ready-to-go build system using [gulp] and [Webpack] for working with [TypeScript].
-- Adjustable build configuration via `json` file (`./config/build-config.json`).
-- Production and development modes.
-- [Webpack DLL]s to speed up development builds.
-- [AoT compilation] for rapid page loads on production builds (*using [@ngtools/webpack]*).
-- Tree-shaking the production builds with `harmony` branch of [UglifyJs2].
-- Hot Module Replacement with [Webpack] and [webpack-hot-middleware].
-- Both inline and external SCSS compilation.
-- Lazy loading of modules.
-- Uses [@ngx-config] for configuration management.
-- Uses [@ngx-cache] for caching.
-- Uses [@ngx-translate] and [@ngx-i18n-router] for i18n support.
-- Uses [@ngx-meta] for SEO.
-- ~Unit tests with [Jasmine] and [Karma], including code coverage via [Istanbul].~
-- ~End-to-end tests with [Protractor].~
-- [angular-tslint-rules] as configuration preset for [TSLint] and [codelyzer].
-- Managing the type definitions using @types.
+A minimal Angular starter for Universal JavaScript using TypeScript and Webpack
 
-> Built with `@angular v4.2.0`, bundled with `gulp v4.0` and `webpack v3.0.0`.
+> If you're looking for the Angular Universal repo go to [**angular/universal**](https://github.com/angular/universal)  
 
-You can find the live app [here](https://ng-seed-universal.azurewebsites.net).
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## Prerequisites
-Packages in this seed project depend on `@angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
+## Getting Started
 
-Also, please ensure that you are using **`Typescript v2.1.6`** or higher.
+> This demo is built following the [Angular-CLI Wiki guide](https://github.com/angular/angular-cli/wiki/stories-universal-rendering)
 
-## Installing
+We're utilizing packages from the [Angular Universal @nguniversal](https://github.com/angular/universal) repo, such as [ng-module-map-ngfactory-loader](https://github.com/angular/universal/tree/master/modules/module-map-ngfactory-loader) to enable Lazy Loading.
+
+---
+
+### Build Time Prerender(prerender) Vs. Server Side Rendering(ssr)
+This repo demonstrates the use of 2 different forms of Server Side Rendering.
+
+**Prerender(prerender)** 
+* Happens at build time
+* Renders your application and replaces the dist index.html with a version rendered at the route `/`.
+
+**Server-Side Rendering(ssr)**
+* Happens at runtime
+* Uses `ngExpressEngine` to render your application on the fly at the requested url.
+
+---
+
+### Installation
+* `npm install` or `yarn`
+
+### Development (Client-side only rendering)
+* run `npm run start` which will start `ng serve`
+
+### Production (also for testing SSR/Pre-rendering locally)
+**`npm run build:ssr && npm run serve:ssr`** - Compiles your application and spins up a Node Express to serve your Universal application on `http://localhost:4000`.
+
+**`npm run build:prerender && npm run serve:prerender`** - Compiles your application and prerenders your applications files, spinning up a demo http-server so you can view it on `http://localhost:8080`
+**Note**: To deploy your static site to a static hosting platform you will have to deploy the `dist/browser` folder, rather than the usual `dist`
+
+
+## Universal "Gotchas"
+
+> When building Universal components in Angular there are a few things to keep in mind.
+
+ - For the server bundle you may need to include your 3rd party module into `nodeExternals` whitelist
+
+ - **`window`**, **`document`**, **`navigator`**, and other browser types - _do not exist on the server_ - so using them, or any library that uses them (jQuery for example) will not work. You do have some options, if you truly need some of this functionality:
+    - If you need to use them, consider limiting them to only your client and wrapping them situationally. You can use the Object injected using the PLATFORM_ID token to check whether the current platform is browser or server. 
+    
+    ```typescript
+     import { PLATFORM_ID } from '@angular/core';
+     import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+     
+     constructor(@Inject(PLATFORM_ID) private platformId: Object) { ... }
+     
+     ngOnInit() {
+       if (isPlatformBrowser(this.platformId)) {
+          // Client only code.
+          ...
+       }
+       if (isPlatformServer(this.platformId)) {
+         // Server only code.
+         ...
+       }
+     }
+    ```
+    
+     - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ngOnDestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
+   - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
+ - **Don't manipulate the nativeElement directly**. Use the _Renderer2_ from ["@angular/core"](https://angular.io/api/core/Renderer2). We do this to ensure that in any environment we're able to change our view.
+```typescript
+constructor(element: ElementRef, renderer: Renderer2) {
+  this.renderer.setStyle(element.nativeElement, 'font-size', 'x-large');
+}
 ```
-# use npm (or yarn) to install the dependencies
-npm install
+ - The application runs XHR requests on the server & once again on the Client-side (when the application bootstraps)
+    - Use a cache that's transferred from server to client (TODO: Point to the example)
+ - Know the difference between attributes and properties in relation to the DOM.
+ - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native element the src attribute is reflected as the src property of the element type HTMLImageElement.
 
-# dev build (SPA / lean Angular)
-npm run build:spa-dev
-# prod build (SPA / lean Angular)
-npm run build:spa-prod
-
-# start the server (SPA / lean Angular)
-npm run serve:spa
-# start the server (SPA / lean Angular, with HMR support)
-npm run serve:spa-hmr
-
-# dev build (Universal)
-npm run build:universal-dev
-# prod build (Universal)
-npm run build:universal-prod
-
-# start the server (Angular Universal)
-npm run serve
-```
-
-Navigate to `http://localhost:1337` for **lean Angular** (*client-side rendering*) and `http://localhost:8000` for **Angular Universal** (*server-side rendering*) in your browser.
-
-## License
-The MIT License (MIT)
-
-Copyright (c) 2017 [Burak Tasci]
-
-[gulp]: http://gulpjs.com
-[Webpack]: http://webpack.github.io
-[TypeScript]: https://github.com/Microsoft/TypeScript
-[Webpack DLL]: https://robertknight.github.io/posts/webpack-dll-plugins
-[AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
-[@ngtools/webpack]: https://www.npmjs.com/package/@ngtools/webpack
-[UglifyJs2]: https://github.com/mishoo/UglifyJS2/tree/harmony
-[webpack-hot-middleware]: https://github.com/glenjamin/webpack-hot-middleware
-[@ngx-config]: https://github.com/ngx-config/core
-[@ngx-cache]: https://github.com/ngx-cache/core
-[@ngx-translate]: https://github.com/ngx-translate/core
-[@ngx-i18n-router]: https://github.com/ngx-i18n-router/core
-[@ngx-meta]: https://github.com/ngx-meta/core
-[Jasmine]: https://jasmine.github.io
-[Karma]: https://karma-runner.github.io
-[Istanbul]: https://github.com/webpack-contrib/istanbul-instrumenter-loader
-[Protractor]: http://www.protractortest.org
-[angular-tslint-rules]: https://github.com/fulls1z3/angular-tslint-rules
-[TSLint]: https://github.com/palantir/tslint
-[codelyzer]: https://github.com/mgechev/codelyzer
-[Burak Tasci]: http://www.buraktasci.com
+# License
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
