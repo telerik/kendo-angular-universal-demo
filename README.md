@@ -57,7 +57,7 @@ npm install
 
 # go back to the main projects directory
 cd ..
-`SET ASPNETCORE_Environment=Development` (Windows) or `export ASPNETCORE_Environment=Development` (Linux, OSX)
+SET ASPNETCORE_Environment=Development (Windows) or export ASPNETCORE_Environment=Development (Linux, OSX)
 
 # Start the development server
 dotnet run
