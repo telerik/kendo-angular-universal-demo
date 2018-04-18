@@ -52,13 +52,14 @@ To run the application, execute the following commands:
 dotnet restore
 
 # use npm (or yarn) to install the dependencies
+cd ClientApp/
 npm install
 
-# build the application using Webpack
-webpack --config webpack.config.vendor.js
-webpack
+# go back to the main projects directory
+cd ..
+`SET ASPNETCORE_Environment=Development` (Windows) or `export ASPNETCORE_Environment=Development` (Linux, OSX)
 
-# run the application
+# Start the development server
 dotnet run
 ```
 
