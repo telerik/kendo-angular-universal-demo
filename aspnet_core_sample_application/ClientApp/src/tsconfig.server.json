@@ -1,11 +1,10 @@
 {
-    "extends": "../tsconfig.json",
-    "compilerOptions": {
-      "baseUrl": "./",
-      "module": "commonjs"
-    },
-    "angularCompilerOptions": {
-      "entryModule": "app/app.server.module#AppServerModule"
-    }
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "commonjs"
+  },
+  "angularCompilerOptions": {
+    "entryModule": "app/app.server.module#AppServerModule"
+  }
 }
-

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace dotnet_angular
+namespace angular6
 {
     public class Startup
     {
@@ -58,7 +58,7 @@ namespace dotnet_angular
 
                 spa.UseSpaPrerendering(options =>
                 {
-                    options.BootModulePath = $"{spa.Options.SourcePath}/dist-server/main.bundle.js";
+                    options.BootModulePath = $"{spa.Options.SourcePath}/dist-server/main.js";
                     options.BootModuleBuilder = env.IsDevelopment()
                         ? new AngularCliBuilder(npmScript: "build:ssr")
                         : null;

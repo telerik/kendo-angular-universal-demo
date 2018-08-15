@@ -13,11 +13,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 // Import the Animations module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Import the ButtonsModule
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-
 import { GridModule } from '@progress/kendo-angular-grid';
-
 
 @NgModule({
   declarations: [
@@ -29,7 +25,6 @@ import { GridModule } from '@progress/kendo-angular-grid';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    ButtonsModule,
     GridModule,
     BrowserAnimationsModule,
     HttpClientModule,

@@ -11,14 +11,15 @@
   <kendo-grid-column 
     field="dateFormatted" 
     format="{0:d}" 
+    filter="date"
     title="Date"></kendo-grid-column>
-  <kendo-grid-column field="temperatureC" title="Temperature C">
+  <kendo-grid-column field="temperatureC" title="Temperature C" filter="numeric">
     <ng-template kendoGridCellTemplate let-dataItem>
       {{ dataItem.temperatureC }}°C
     </ng-template>
   </kendo-grid-column>
   <kendo-grid-column field="summary" title="Summary"></kendo-grid-column>
-  <kendo-grid-column field="temperatureF" title="Temperature F">
+  <kendo-grid-column field="temperatureF" title="Temperature F" filter="numeric">
       <ng-template kendoGridCellTemplate let-dataItem>
         {{ dataItem.temperatureF }}°F
       </ng-template>
