@@ -72,7 +72,7 @@ This repo demonstrates the use of 2 different forms of Server Side Rendering.
      }
     ```
     
-     - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ngOnDestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
+     - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ngOnDestroy`](https://angular.io/api/core/OnDestroy) in Components.
    - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
  - **Don't manipulate the nativeElement directly**. Use the _Renderer2_ from ["@angular/core"](https://angular.io/api/core/Renderer2). We do this to ensure that in any environment we're able to change our view.
 ```typescript
