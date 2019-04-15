@@ -1,3 +1,5 @@
+##  This repository is no longer updated. To access the current version, refer to the [`kendo-angular` repository](https://github.com/telerik/kendo-angular/tree/master/examples-standalone/angular-universal).
+
 # Kendo UI for Angular: Angular Universal
 
 This repository contains a Node-based and an ASP.NET Core-based sample applications which demonstrate how to use Kendo UI for Angular and Angular Universal.
